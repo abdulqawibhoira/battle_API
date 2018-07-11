@@ -1,0 +1,10 @@
+{
+    "port": 3000,
+    "mongodb": {
+        "host": "ds233551.mlab.com",
+        "port": 33551,
+        "username": "abdul",
+        "password": "abdul123",
+        "databaseName": "battle_aqb_instarem"
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "battle_api",
+  "version": "1.0.0",
+  "description": "Battle APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdulqawibhoira/battle_API.git"
+  },
+  "author": "Abdul Qawi Bhoira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdulqawibhoira/battle_API/issues"
+  },
+  "homepage": "https://github.com/abdulqawibhoira/battle_API#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "convict": "^4.3.1",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.3"
+  }
+}
