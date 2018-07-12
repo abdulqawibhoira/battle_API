@@ -38,3 +38,7 @@ node index.js
 - These APIs are deployed on heroku
 
 - heroku URL - https://thawing-everglades-40355.herokuapp.com/v1
+
+- Extra /login API is created for JWT integration
+
+- Mongodb is hosted on mlabs. (https://mlab.com/)
