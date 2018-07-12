@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const APIError = require('../lib/APIError.js');
 const config = require('../configs');
+const constants = require('../constants.js');
 
 /** 
  * This function returns a middleware function which authenticates the user.
