@@ -43,5 +43,5 @@ app.use(function (err, req, res, next) {
     APIResponse.ERROR(res, status, err);
 });
 
-app.listen(process.env.port || config.get('port'));
+app.listen(process.env.PORT || config.get('port'));
 module.exports = app;
