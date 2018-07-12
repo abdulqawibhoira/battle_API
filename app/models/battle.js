@@ -37,6 +37,33 @@ battleSchema.statics.search = async function ({ queryParams, limit, skip }) {
     return await this.find(filter).limit(limit).skip(skip);
 };
 
+battleSchema.statics.getDefenderSizeStats = async function () {
+    return await this.aggregate()
+        .match({ defender_size: { $ne: "" } })
+        .group({ _id: null, maxDefenderSize: { $max: '$defender_size' }, minDefenderSize: { $min: '$defender_size' }, avgDefenderSize: { $avg: '$defender_size' } })
+        .project('-_id maxDefenderSize minDefenderSize avgDefenderSize');
+};
+
+battleSchema.statics.getAttackerOutcome = async function () {
+    return await this.aggregate()
+        .match({ attacker_outcome: { $ne: "" } })
+        .group({ _id: "$attacker_outcome", count: { $sum: 1 } })
+        .project('_id count');
+};
+
+battleSchema.statics.getDistinctBattleTypes = async function () {
+    return await this.distinct('battle_type', { battle_type: { $ne: "" } })
+};
+
+battleSchema.statics.getMostActive = async function (param) {
+    return await this.aggregate()
+        .match({ [param]: { $ne: "" } })
+        .group({ _id: `$${param}`, count: { $sum: 1 } })
+        .sort({ count: -1 })
+        .limit(1)
+        .project('_id');
+};
+
 const getSearchFiler = (queryParams) => {
     const filter = {};
     for (const param of getAllowedFilterFields()) {
